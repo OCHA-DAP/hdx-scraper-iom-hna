@@ -3,7 +3,21 @@
 [![Coverage Status](https://coveralls.io/repos/github/OCHA-DAP/hdx-scraper-iom-hna/badge.svg?branch=main&ts=1)](https://coveralls.io/github/OCHA-DAP/hdx-scraper-iom-hna?branch=main)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 
-This script ...
+This script downloads IOM Displacement Tracking Matrix (DTM) Household Needs
+Assessment (HNA) results from the
+[DTM HNA API](https://dtm-apim-portal.iom.int/) and publishes one HDX dataset
+per country (currently MOZ, NGA, SDN and SSD). Each dataset has one CSV
+resource per assessment year, with indicators by admin 2 and population group,
+plus a data dictionary from the API's catalog endpoint.
+
+IOM's columns are kept unchanged. Standard `admin1_pcode` and `admin2_pcode`
+columns are added from the current COD in the
+[Global P-Codes dataset](https://data.humdata.org/dataset/global-pcodes), along
+with `reference_period_start` and `reference_period_end` from the assessment
+year. Country-specific p-code handling is set in
+`src/hdx/scraper/iom_hna/config/project_configuration.yaml`.
+
+The datasets are published to HDX stage until partner and HDX sign-off.
 
 ## Development
 
@@ -35,11 +49,20 @@ For the script to run, you will need to have a file called
  Alternatively, you can set up environment variables: `USER_AGENT`, `HDX_KEY`,
 `HDX_SITE`, `EXTRA_PARAMS`, `TEMP_DIR`, and `LOG_FILE_ONLY`.
 
-To run, execute:
+The HNA API needs its own subscription key (the DTM displacement API key does not
+work). Set it in the `DTM_HNA_KEY` environment variable or pass it with
+`--dtm-hna-key`. It is stored in Bitwarden and as the `DTM_HNA_KEY` GitHub Actions
+secret. The API returns 403 for the default `python-requests` user agent, so the
+user agent must come from `.useragents.yaml` or `USER_AGENT`.
+
+To run against HDX stage, execute:
 
 ```shell
-    uv run python -m hdx.scraper.iom_hna
+    uv run python -m hdx.scraper.iom_hna --hdx-site stage
 ```
+
+Add `--save` to save the API responses to `saved_data/` and `--use-saved` to
+rerun from them.
 
 ### Pre-commit
 
