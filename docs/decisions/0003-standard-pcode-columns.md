@@ -20,8 +20,10 @@ through unchanged.
 ## Decision
 
 - Keep IOM's columns unchanged.
-- Add `admin1_pcode`, `admin1_name`, `admin2_pcode` and `admin2_name`, filled by `complete_admins`
-  against the global p-codes dataset.
+- Add `admin1_pcode` and `admin2_pcode`, filled by `complete_admins` against the global p-codes
+  dataset. COD names are not added: on 2026-11-02 data they differ from IOM's names in only 2 cases
+  (MOZ "Nacala" vs "Nacala Porto" and "Cidade De Xai-Xai" vs "Xai-Xai"), apart from case and
+  accents. This matches `hdx-scraper-eve`.
 - Countries in `ignore_provider_pcodes` (MOZ) are matched on admin names only.
 - Rows whose admin 2 name is in `no_pcode_admin_names` (Abyei Administrative Area) are left blank,
   rather than given an SDN p-code. SD19 is in the SDN COD, and using it would take a side on Abyei's

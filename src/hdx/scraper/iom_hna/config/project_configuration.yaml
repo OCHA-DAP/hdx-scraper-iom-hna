@@ -40,9 +40,7 @@ no_pcode_admin_names:
 # Inserted after the provider's admin columns
 standard_columns:
   - admin1_pcode
-  - admin1_name
   - admin2_pcode
-  - admin2_name
   - reference_period_start
   - reference_period_end
 

@@ -113,16 +113,16 @@ class Pipeline:
                 message_type="warning",
             )
 
-    def get_standard_admins(self, iso3: str, row: dict) -> tuple[list, list]:
-        """Get admin 1 and 2 p-codes and names from the current COD, using the
-        provider's p-codes where they can be trusted and names otherwise"""
+    def get_standard_pcodes(self, iso3: str, row: dict) -> list[str]:
+        """Get admin 1 and 2 p-codes from the current COD, using the provider's
+        p-codes where they can be trusted and names otherwise"""
         columns = self._configuration["provider_admin_columns"]
         provider_names = [
             row[columns["admin1_name"]] or "",
             row[columns["admin2_name"]] or "",
         ]
         if provider_names[1] in self._configuration["no_pcode_admin_names"]:
-            return ["", ""], ["", ""]
+            return ["", ""]
         if iso3 in self._configuration["ignore_provider_pcodes"]:
             pcodes = ["", ""]
         else:
@@ -130,8 +130,9 @@ class Pipeline:
                 row[columns["admin1_pcode"]] or "",
                 row[columns["admin2_pcode"]] or "",
             ]
-        names = ["", ""]
-        _, warnings = complete_admins(self._admins, iso3, provider_names, pcodes, names)
+        _, warnings = complete_admins(
+            self._admins, iso3, provider_names, pcodes, ["", ""]
+        )
         for warning in warnings:
             self._error_handler.add_message(
                 _PIPELINE, iso3, warning, message_type="warning"
@@ -143,20 +144,18 @@ class Pipeline:
                 f"No admin 2 p-code for {provider_names[0]}/{provider_names[1]}",
                 message_type="warning",
             )
-        return pcodes, names
+        return pcodes
 
     def process_row(self, iso3: str, row: dict) -> dict:
-        """Keep the provider's columns and add standard admin and date columns
+        """Keep the provider's columns and add standard p-code and date columns
         after the provider's admin 2 p-code column"""
-        pcodes, names = self.get_standard_admins(iso3, row)
+        pcodes = self.get_standard_pcodes(iso3, row)
         startdate, enddate = parse_date_range(
             str(row[self._configuration["year_column"]])
         )
         standard_values = {
             "admin1_pcode": pcodes[0],
-            "admin1_name": names[0],
             "admin2_pcode": pcodes[1],
-            "admin2_name": names[1],
             "reference_period_start": startdate.strftime("%Y-%m-%d"),
             "reference_period_end": enddate.strftime("%Y-%m-%d"),
         }

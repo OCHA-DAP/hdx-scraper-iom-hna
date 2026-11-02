@@ -68,9 +68,9 @@ automatically on commit).
   - `get_admin2_data`: pages through `admin2` until `hasNextPage` is false. A response with
     `isSuccess` false logs an error and drops the whole year. No data comes back as `isSuccess`
     true with empty `data`.
-  - `process_row`: keeps IOM's columns and inserts the standard admin and
+  - `process_row`: keeps IOM's columns and inserts the standard p-code and
     `reference_period_start`/`_end` columns after `m0304_meta_adm2_pcode`.
-  - `get_standard_admins`: uses `complete_admins` against global p-codes. MOZ is matched on names
+  - `get_standard_pcodes`: uses `complete_admins` against global p-codes. MOZ is matched on names
     only, and Abyei is left blank. See `docs/decisions/0003-standard-pcode-columns.md`.
   - `check_columns`: logs differences between the data columns and the catalog.
 - `config/project_configuration.yaml`: URLs, tags, column names and country-specific p-code

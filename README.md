@@ -10,8 +10,8 @@ per country (currently MOZ, NGA, SDN and SSD). Each dataset has one CSV
 resource per assessment year, with indicators by admin 2 and population group,
 plus a data dictionary from the API's catalog endpoint.
 
-IOM's columns are kept unchanged. Standard `admin1_pcode`, `admin1_name`,
-`admin2_pcode` and `admin2_name` columns are added from the current COD in the
+IOM's columns are kept unchanged. Standard `admin1_pcode` and `admin2_pcode`
+columns are added from the current COD in the
 [Global P-Codes dataset](https://data.humdata.org/dataset/global-pcodes), along
 with `reference_period_start` and `reference_period_end` from the assessment
 year. Country-specific p-code handling is set in

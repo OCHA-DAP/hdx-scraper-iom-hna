@@ -13,8 +13,8 @@ methodology: Sample Survey
 caveats: >
   Indicators are survey estimates aggregated by admin 2 and population group
   (m2788_loc_assessment_strata: IDP, IDP returnee or Non displaced), not
-  counts of the whole population. The admin1_pcode, admin1_name, admin2_pcode
-  and admin2_name columns are matched to the current COD in the
+  counts of the whole population. The admin1_pcode and admin2_pcode columns
+  are matched to the current COD in the
   [Global P-Codes dataset](https://data.humdata.org/dataset/global-pcodes);
   IOM's original admin columns are kept unchanged. Mozambique's original
   p-codes are from the pre-2025 COD, so Mozambique is matched on admin names
