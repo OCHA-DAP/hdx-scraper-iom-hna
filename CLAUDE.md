@@ -11,7 +11,7 @@ user agent.
 
 Output: one HDX dataset per country (`{iso3}-iom-dtm-household-needs-assessment`), with one CSV per
 assessment year, newest first, then `iom_dtm_hna_data_dictionary.csv` from the `catalog` endpoint.
-Published to HDX stage (`HDX_SITE: stage` in the run workflow) until partner and HDX sign-off.
+Published to HDX stage (repo variable `HDX_SITE=stage`, read by the run workflow) until partner and HDX sign-off.
 
 ## Commands
 

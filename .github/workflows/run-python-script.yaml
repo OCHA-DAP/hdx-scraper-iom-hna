@@ -23,7 +23,7 @@ jobs:
 
       - name: Run script
         env:
-          HDX_SITE: stage
+          HDX_SITE: ${{ vars.HDX_SITE }}
           DTM_HNA_KEY: ${{ secrets.DTM_HNA_KEY }}
           HDX_KEY: ${{ secrets.HDX_BOT_SCRAPERS_API_TOKEN }}
           PREPREFIX: ${{ vars.HDX_USER_AGENT_PREPREFIX }}
