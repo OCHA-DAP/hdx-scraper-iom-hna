@@ -1,0 +1,113 @@
+﻿indicator_category,indicator_name,description,data_type
+Reason for displacement,pct_hh_m2671_hh_ddc_disp_reason_primary_disaster_non_climate,"Percentage of IDP households that reported a non-climate-related disaster (e.g., landslide) as the reason for displacement",Float
+Food Consumption Score (FCS),mean_i0007_hh_fcs_score,Mean (average) food consumption score. The score ranges from 0 to 112,Float
+Household Hunger Scale (HHS),pct_hh_i0006_hh_hhs_category_severe,Percentage of households whose household hunger scale category is Severe,Float
+Household Hunger Scale (HHS),pct_hh_i0006_hh_hhs_category_very_severe,Percentage of households whose household hunger scale category is Very Severe,Float
+Reduced Coping Strategy Index (rCSI),pct_hh_i0002_hh_rcsi_category_phase1,Percentage of households whose reduced coping strategy index falls within Phase 1,Float
+Reduced Coping Strategy Index (rCSI),pct_hh_i0002_hh_rcsi_category_phase2,Percentage of households whose reduced coping strategy index falls within Phase 2,Float
+Shelter Enclosure issues,pct_hh_m2880_hh_shelter_enclosure_issues_flooding,Percentage of households reporting flooding as a shelter enclosure issue,Float
+Health care barriers,pct_hh_m2954_health_barriers_encountered_legal,Percentage of households reporting legal barriers to healthcare access,Float
+Health care barriers,pct_hh_m2954_health_barriers_encountered_none,Percentage of households reporting no barriers to healthcare access,Float
+Location of assessment,m3693_meta_adm0_name,Country name,String
+Demographics,mean_num_m3676_hh_num_female_60_plus,Average number of female household members aged 60 and above per household for a specific population category at the admin 2 level,Float
+Shelter Enclosure issues,pct_hh_m2880_hh_shelter_enclosure_issues_space,Percentage of households reporting insufficient living space as a shelter enclosure issue,Float
+Health care barriers,pct_hh_m2954_health_barriers_encountered_distance,Percentage of households reporting long distances to healthcare facilities as a barrier to healthcare access,Float
+Health care barriers,pct_hh_m2954_health_barriers_encountered_insurance,Percentage of households reporting a lack of insurance as a barrier to healthcare access,Float
+Sanitation Problems,pct_hh_m2938_sanitation_problems_distance,Percentage of households reporting long distances to sanitation facilities as a sanitation problem,Float
+Sanitation Problems,pct_hh_m2938_sanitation_problems_dnk,Percentage of households whose sanitation problem is unknown,Float
+Priority Needs,pct_hh_m2730_hh_priority_needs_other,Percentage of households reporting other priority needs,Float
+Population Category,m2788_loc_assessment_strata,"Population category (IDP, IDP returnee, or non-displaced)",String
+Demographics,mean_num_m3680_hh_num_female,Average number of female household members per household for a specific population category at the admin 2 level,Float
+Food Consumption Score (FCS),pct_hh_i0008_hh_fcs_category_borderline,Percentage of households with a Borderline food consumption score,Float
+Sanitation Problems,pct_hh_m2938_sanitation_problems_unclean,Percentage of households reporting unclean facilities as a sanitation problem,Float
+Priority Needs,pct_hh_m2730_hh_priority_needs_return_support,Percentage of households reporting support to return to their area of origin as a priority need,Float
+Shelter Enclosure issues,pct_hh_m2880_hh_shelter_enclosure_issues_leakage_rain,Percentage of households reporting rain leakage as a shelter enclosure issue,Float
+Sanitation Problems,num_hh_m2938_sanitation_problems,Number of households that provided a response to the sanitation problems question,Integer
+Priority Needs,pct_hh_m2730_hh_priority_needs_shelter,Percentage of households reporting shelter as a priority need,Float
+Reduced Coping Strategy Index (rCSI),mean_i0001_hh_rcsi_score,Mean (average) reduced coping strategy index. The index ranges from 0 to 56,Float
+Shelter Damage,pct_hh_m2879_hh_shelter_damage_type_none,Percentage of households reporting no shelter damage,Float
+Health care barriers,pct_hh_m2954_health_barriers_encountered_discrimination,Percentage of households reporting discrimination as a barrier to healthcare access,Float
+Health care barriers,pct_hh_m2954_health_barriers_encountered_pnta,Percentage of households that preferred not to answer regarding barriers to healthcare access,Float
+Sanitation Problems,pct_hh_m2938_sanitation_problems_other,Percentage of households reporting other sanitation problems,Float
+Priority Needs,num_hh_m2730_hh_priority_needs,Number of households that provided a response (including those that said 'None'),Integer
+Priority Needs,pct_hh_m2730_hh_priority_needs_education,Percentage of households reporting education as a priority need,Float
+Food Consumption Score (FCS),pct_hh_i0008_hh_fcs_category_poor,Percentage of households with a Poor food consumption score,Float
+Health care barriers,pct_hh_m2954_health_barriers_encountered_insecurity,Percentage of households reporting insecurity as a barrier to healthcare access,Float
+Health care barriers,pct_hh_m2954_health_barriers_encountered_language,Percentage of households reporting language barriers to healthcare access,Float
+Health care barriers,pct_hh_m2954_health_barriers_encountered_finances,Percentage of households reporting financial constraints as a barrier to healthcare access,Float
+Sanitation Problems,pct_hh_m2938_sanitation_problems_pnta,Percentage of households that preferred not to state their sanitation problems,Float
+Priority Needs,pct_hh_m2730_hh_priority_needs_food,Percentage of households reporting food as a priority need,Float
+Priority Needs,pct_hh_m2730_hh_priority_needs_pnta,Percentage of households that preferred not to answer regarding priority needs,Float
+Household Hunger Scale (HHS),pct_hh_i0006_hh_hhs_category_none,Percentage of households whose household hunger scale category is None,Float
+Health care barriers,pct_hh_m2954_health_barriers_encountered_dnk_where,Percentage of households reporting that they do not know where to access healthcare services,Float
+Priority Needs,pct_hh_m2730_hh_priority_needs_health,Percentage of households reporting healthcare as a priority need,Float
+Location of assessment,m0302_meta_adm0_pcode,Country ISO3 code,String
+Demographics,mean_num_m26611_hh_members,Average number of household members per household for a specific population category at the admin 2 level,Float
+Livelihood Coping Strategy (LCS),pct_hh_i0004_hh_lcs_category_crisis,Percentage of households adopting a Crisis livelihood coping strategy,Float
+Shelter Damage,pct_hh_m2879_hh_shelter_damage_type_floor,Percentage of households reporting floor damage as a type of shelter damage,Float
+Shelter Enclosure issues,pct_hh_m2880_hh_shelter_enclosure_issues_ventilation,Percentage of households reporting a lack of ventilation as a shelter enclosure issue,Float
+Shelter Enclosure issues,pct_hh_m2880_hh_shelter_enclosure_issues_dnk,Percentage of households who reported their shelter enclosure issues as unknown,Float
+Health care barriers,num_hh_m2954_health_barriers_encountered,"Number of households that provided a response to the healthcare barriers question, including households that reported no (none) barriers to healthcare access",Integer
+Health care barriers,pct_hh_m2954_health_barriers_encountered_female_staff,Percentage of households reporting a lack of female healthcare staff as a barrier to healthcare access,Float
+Sanitation Problems,pct_hh_m2938_sanitation_problems_discrimination,Percentage of households reporting discrimination as a sanitation problem,Float
+Sanitation Problems,pct_hh_m2938_sanitation_problems_no_privacy,Percentage of households reporting a lack of privacy as a sanitation problem,Float
+Priority Needs,pct_hh_m2730_hh_priority_needs_nfi,Percentage of households reporting NFI as a priority need,Float
+Priority Needs,pct_hh_m2730_hh_priority_needs_cash,Percentage of households reporting cash or vouchers as a priority need,Float
+Reason for displacement,pct_hh_m2671_hh_ddc_disp_reason_primary_disaster_climate,"Percentage of IDP households that reported a climate-related disaster (e.g., flood or drought) as the reason for displacement",Float
+Food Consumption Score (FCS),pct_hh_i0008_hh_fcs_category_acceptable,Percentage of households with an Acceptable food consumption score,Float
+Household Hunger Scale (HHS),pct_hh_i0006_hh_hhs_category_little,Percentage of households whose household hunger scale category is Little,Float
+Shelter Enclosure issues,pct_hh_m2880_hh_shelter_enclosure_issues_insulation,Percentage of households reporting inadequate insulation as a shelter enclosure issue,Float
+Health care barriers,pct_hh_m2954_health_barriers_encountered_fear_deportation,Percentage of households reporting fear of deportation as a barrier to healthcare access,Float
+Priority Needs,pct_hh_m2730_hh_priority_needs_pss,Percentage of households reporting psychosocial support as a priority need,Float
+Household Hunger Scale (HHS),mean_i0005_hh_hhs_score,Mean (average) household hunger scale score. The score ranges from 0 to 6,Float
+Reduced Coping Strategy Index (rCSI),pct_hh_i0002_hh_rcsi_category_phase3,Percentage of households whose reduced coping strategy index falls within Phase 3,Float
+Health care barriers,pct_hh_m2954_health_barriers_encountered_documentation,Percentage of households reporting a lack of documentation as a barrier to healthcare access,Float
+Location of assessment,m0304_meta_adm2_pcode,Administrative level 2 p-code,String
+Demographics,mean_num_m3681_hh_num_male,Average number of male household members per household for a specific population category at the admin 2 level,Float
+Reduced Coping Strategy Index (rCSI),pct_hh_i0002_hh_rcsi_category_phase4,Percentage of households whose reduced coping strategy index falls within Phase 4,Float
+Shelter Damage,pct_hh_m2879_hh_shelter_damage_type_roof_partial,Percentage of households reporting partial roof damage as a type of shelter damage,Float
+Shelter Enclosure issues,num_hh_m2880_hh_shelter_enclosure_issues,"Number of households that provided a response to the shelter enclosure issues question, including households that reported no (none) shelter enclosure issues.",Integer
+Shelter Enclosure issues,pct_hh_m2880_hh_shelter_enclosure_issues_none,Percentage of households reporting no shelter enclosure issues,Float
+Sanitation Problems,pct_hh_m2938_sanitation_problems_garbage_collection,Percentage of households reporting garbage collection as a sanitation problem,Float
+Demographics,num_households,Number of households for a specific population category at admin 2 level,Integer
+Demographics,num_m2661_hh_members,Total number of individuals for a specific population category at admin 2 level,Integer
+Livelihood Coping Strategy (LCS),pct_hh_i0004_hh_lcs_category_emergency,Percentage of households adopting an Emergency livelihood coping strategy,Float
+Shelter Damage,pct_hh_m2879_hh_shelter_damage_type_roof,Percentage of households reporting roof damage as a type of shelter damage,Float
+Shelter Enclosure issues,pct_hh_m2880_hh_shelter_enclosure_issues_privacy,Percentage of households reporting a lack of privacy as a shelter enclosure issue,Float
+Priority Needs,pct_hh_m2730_hh_priority_needs_dnk,Percentage of households whose priority needs are unknown,Float
+Location of assessment,m3695_meta_adm2_name,Administrative level 2 name,String
+Demographics,mean_num_m3679_hh_num_male_60_plus,Average number of male household members aged 60 and above per household for a specific population category at the admin 2 level,Float
+Livelihood Coping Strategy (LCS),pct_hh_i0004_hh_lcs_category_none,Percentage of households adopting No livelihood coping strategies,Float
+Shelter Damage,pct_hh_m2879_hh_shelter_damage_type_windows_doors,Percentage of households reporting window or door damage as a type of shelter damage,Float
+Sanitation Problems,pct_hh_m2938_sanitation_problems_crowded,Percentage of households reporting overcrowding as a sanitation problem,Float
+Priority Needs,pct_hh_m2730_hh_priority_needs_livelihood,Percentage of households reporting livelihood or employment as a priority need,Float
+Location of assessment,m3694_meta_adm1_name,Administrative level 1 name,String
+Demographics,mean_num_m3675_hh_num_female_18_59,Average number of female household members aged 18–59 per household for a specific population category at the admin 2 level,Float
+Reason for displacement,pct_hh_m2671_hh_ddc_disp_reason_primary_conflict,Percentage of IDP households that reported conflict as the reason for displacement,Float
+Household Hunger Scale (HHS),pct_hh_i0006_hh_hhs_category_moderate,Percentage of households whose household hunger scale category is Moderate,Float
+Health care barriers,pct_hh_m2954_health_barriers_encountered_access_intermittent,Percentage of households reporting intermittent access as a barrier to healthcare access,Float
+Sanitation Problems,pct_hh_m2938_sanitation_problems_not_functioning,Percentage of households reporting non-functioning facilities as a sanitation problem,Float
+Priority Needs,pct_hh_m2730_hh_priority_needs_access_market,Percentage of households reporting access to the market as a priority need,Float
+Priority Needs,pct_hh_m2730_hh_priority_needs_water,Percentage of households reporting water as a priority need,Float
+Priority Needs,pct_hh_m2730_hh_priority_needs_legal_consular,Percentage of households reporting legal documentation as a priority need,Float
+Priority Needs,pct_hh_m2730_hh_priority_needs_reunification,Percentage of households reporting family reunification services as a priority need,Float
+Demographics,mean_num_m3677_hh_num_male_0_17,Average number of male household members aged 0–17 per household for a specific population category at the admin 2 level,Float
+Demographics,mean_num_m3678_hh_num_male_18_59,Average number of male household members aged 18–59 per household for a specific population category at the admin 2 level,Float
+Livelihood Coping Strategy (LCS),pct_hh_i0004_hh_lcs_category_stress,Percentage of households adopting a Stress livelihood coping strategy,Float
+Shelter Damage,num_hh_m2879_hh_shelter_damage_type,"Number of households that provided a response to the type of shelter damage question, including households that reported no shelter damage (none)",Integer
+Shelter Damage,pct_hh_m2879_hh_shelter_damage_type_walls,Percentage of households reporting wall damage as a type of shelter damage,Float
+Health care barriers,pct_hh_m2954_health_barriers_encountered_dnk,Percentage of households whose barriers to healthcare are unknown,Float
+Health care barriers,pct_hh_m2954_health_barriers_encountered_transport,Percentage of households reporting transportation issues as a barrier to healthcare access,Float
+Sanitation Problems,pct_hh_m2938_sanitation_problems_no_segregation,Percentage of households reporting a lack of separate facilities for females and males as a sanitation problem,Float
+Priority Needs,pct_hh_m2730_hh_priority_needs_sanitation,Percentage of households reporting sanitation facilities as a priority need,Float
+Priority Needs,pct_hh_m2730_hh_priority_needs_security,Percentage of households reporting safety or security as a priority need,Float
+Location of assessment,m0303_meta_adm1_pcode,Administrative level 1 p-code,String
+Year of assessment,year,Year in which the HNA assessment was conducted. HNA assessments are conducted annually.,Integer
+Demographics,mean_num_m3674_hh_num_female_0_17,Average number of female household members aged 0–17 per household for a specific population category at the admin 2 level,Float
+Reason for displacement,pct_hh_m2671_hh_ddc_disp_reason_primary_other,Percentage of IDP households that reported a reason for displacement other than conflict or disaster,Float
+Shelter Enclosure issues,pct_hh_m2880_hh_shelter_enclosure_issues_pnta,Percentage of households that preferred not to answer regarding shelter enclosure issues,Float
+Shelter Enclosure issues,pct_hh_m2880_hh_shelter_enclosure_issues_lock,Percentage of households reporting inadequate door locks as a shelter enclosure issue,Float
+Health care barriers,pct_hh_m2954_health_barriers_encountered_other,Percentage of households reporting other barriers to healthcare access,Float
+Sanitation Problems,pct_hh_m2938_sanitation_problems_drainage,Percentage of households reporting drainage issues as a sanitation problem,Float
+Sanitation Problems,pct_hh_m2938_sanitation_problems_security,Percentage of households reporting insecurity as a sanitation problem,Float
+Priority Needs,pct_hh_m2730_hh_priority_needs_none,Percentage of households reporting no priority needs,Float

@@ -1,1 +1,57 @@
 # Collector specific configuration
+COUNTRY_LIST_URL: "https://dtmapi.iom.int/HNA/v1/country-list"
+
+CATALOG_URL: "https://dtmapi.iom.int/HNA/v1/catalog"
+
+ADMIN2_URL: "https://dtmapi.iom.int/HNA/v1/admin2?Admin0Pcode={iso3}&Year={year}&Page={page}"
+
+tags:
+  - displacement
+  - food security
+  - health
+  - internally displaced persons-idp
+  - needs assessment
+  - returnees
+  - shelter
+  - water sanitation and hygiene-wash
+
+provider_admin_columns:
+  admin1_name: m3694_meta_adm1_name
+  admin1_pcode: m0303_meta_adm1_pcode
+  admin2_name: m3695_meta_adm2_name
+  admin2_pcode: m0304_meta_adm2_pcode
+
+year_column: year
+
+# Data columns not described in the data dictionary
+non_indicator_columns:
+  - id
+
+# MOZ HNA p-codes are from the pre-2025 COD: MZ01 is Cabo Delgado in IOM's
+# data but Niassa in the current COD. Match MOZ admin names only.
+ignore_provider_pcodes:
+  - MOZ
+
+# Abyei Administrative Area has no p-code in the SSD COD (it is SD19 in the
+# SDN COD), so IOM leaves its SSD p-codes blank.
+no_pcode_admin_names:
+  - Abyei Administrative Area
+
+# Inserted after the provider's admin columns
+standard_columns:
+  - admin1_pcode
+  - admin1_name
+  - admin2_pcode
+  - admin2_name
+  - reference_period_start
+  - reference_period_end
+
+catalog_headers:
+  - indicator_category
+  - indicator_name
+  - description
+  - data_type
+
+catalog_resource_filename: iom_dtm_hna_data_dictionary.csv
+
+catalog_resource_description: "Data dictionary describing each indicator column in the IOM DTM Household Needs Assessment resources"

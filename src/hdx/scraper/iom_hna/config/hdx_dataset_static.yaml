@@ -1,10 +1,39 @@
 license_id: hdx-other
-methodology: Other
-caveats: 
+license_other: >
+  Copyright © International Organization for Migration 2018 IOM reserves the
+  right to assert ownership of the Materials collected on the
+  https://data.humdata.org/ website. The Materials may be viewed,
+  downloaded, and printed for non-commercial use only, without, inter alia,
+  any right to sell, resell, redistribute or create derivative works therefrom.
+  At all times the User shall credit the DTM as the source, unless otherwise
+  stated. The user must include the URL of the Materials from the HDX Website,
+  as well as the following credit line: Source: “International Organization for
+  Migration (IOM), Displacement Tracking Matrix (DTM)”.
+methodology: Sample Survey
+caveats: >
+  Indicators are survey estimates aggregated by admin 2 and population group
+  (m2788_loc_assessment_strata: IDP, IDP returnee or Non displaced), not
+  counts of the whole population. The admin1_pcode, admin1_name, admin2_pcode
+  and admin2_name columns are matched to the current COD in the
+  [Global P-Codes dataset](https://data.humdata.org/dataset/global-pcodes);
+  IOM's original admin columns are kept unchanged. Mozambique's original
+  p-codes are from the pre-2025 COD, so Mozambique is matched on admin names
+  only. Abyei Administrative Area has no p-code in the South Sudan COD, so its
+  rows have blank p-codes.
 dataset_source: International Organization for Migration (IOM)
 package_creator: HDX Data Systems Team
 private: False
 maintainer: 196196be-6037-4488-8b71-d786adf4c081
-owner_org:  f53d32cd-132c-4ef4-bc6d-058f94d08adf
+owner_org: f53d32cd-132c-4ef4-bc6d-058f94d08adf
 data_update_frequency: 365
-notes: IOM DTM Household Needs Assessment
+notes: >
+  This dataset contains results of the International Organization for
+  Migration (IOM) Displacement Tracking Matrix (DTM) Household Needs
+  Assessment (HNA), from the
+  [DTM API](https://dtm.iom.int/data-and-analysis/dtm-api). The HNA surveys
+  internally displaced, returnee and non-displaced households on
+  demographics, reasons for displacement, food consumption and hunger, coping
+  strategies, shelter, sanitation, health care barriers and priority needs.
+  There is one resource per assessment year, with indicators aggregated by
+  admin 2 and population group, and a data dictionary describing each
+  indicator column.
