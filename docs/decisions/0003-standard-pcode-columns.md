@@ -4,6 +4,8 @@
 
 Accepted — 2026-11-02
 
+The MOZ name matching is superseded by 0004.
+
 ## Context
 
 IOM's p-codes (checked 2026-11-02 against global p-codes):

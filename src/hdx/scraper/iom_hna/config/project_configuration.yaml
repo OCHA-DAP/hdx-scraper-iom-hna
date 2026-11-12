@@ -27,10 +27,18 @@ year_column: year
 non_indicator_columns:
   - id
 
-# MOZ HNA p-codes are from the pre-2025 COD: MZ01 is Cabo Delgado in IOM's
-# data but Niassa in the current COD. Match MOZ admin names only.
-ignore_provider_pcodes:
+# MOZ HNA data uses the 2019 COD. In the current COD, 17 of IOM's 77 districts
+# overlap their 2019 area by under 90% (Cidade De Lichinga is 13 times larger)
+# and Ngauma no longer exists. IOM won't update it, so the standard p-code
+# columns are left blank.
+no_pcode_countries:
   - MOZ
+
+# Share of a no_pcode_countries year's admin 2 p-codes whose current COD name
+# matches the provider's name, above which a warning suggests the provider has
+# moved to the current COD. With the 2019 MOZ codes, MZ0107 is Mecufi in IOM's
+# data but Marrupa in the current COD.
+current_cod_match_threshold: 0.9
 
 # Abyei Administrative Area has no p-code in the SSD COD (it is SD19 in the
 # SDN COD), so IOM leaves its SSD p-codes blank.

@@ -107,7 +107,7 @@ class TestPipeline:
         catalog = pipeline.get_catalog()
         assert len(catalog) == 112
 
-        # MOZ: p-codes matched on names as IOM uses the pre-2025 COD
+        # MOZ: standard p-codes blank as IOM uses the 2019 COD
         dataset = pipeline.generate_dataset("MOZ", ["2025", "2022"], catalog)
         dataset.update_from_yaml(path=join(config_dir, "hdx_dataset_static.yaml"))
         assert dataset["name"] == "moz-iom-dtm-household-needs-assessment"
@@ -126,7 +126,7 @@ class TestPipeline:
                 "name": f"moz_iom_dtm_hna_{year}.csv",
                 "description": "Mozambique IOM DTM Household Needs Assessment "
                 f"{year} indicators by admin 2 and population group",
-                "p_coded": True,
+                "p_coded": False,
                 "format": "csv",
             }
             for year in ("2025", "2022")
@@ -150,6 +150,36 @@ class TestPipeline:
             assert_files_same(
                 join(fixtures_dir, filename), join(pipeline._tempdir, filename)
             )
+
+    def test_check_provider_pcodes(self, pipeline):
+        pipeline.setup_admins()
+        columns = pipeline._configuration["provider_admin_columns"]
+        # 2019 COD: MZ0107 and MZ0112 are Marrupa and Metarica in the current COD
+        rows = [
+            {columns["admin2_pcode"]: "MZ0107", columns["admin2_name"]: "Mecufi"},
+            {columns["admin2_pcode"]: "MZ0112", columns["admin2_name"]: "Mueda"},
+        ]
+        pipeline.check_provider_pcodes("MOZ", "2025", rows)
+        assert pipeline._error_handler.shared_errors["warning"] == {}
+        # Current COD
+        rows = [
+            {columns["admin2_pcode"]: "MZ0211", columns["admin2_name"]: "Mueda"},
+            {
+                columns["admin2_pcode"]: "MZ0201",
+                columns["admin2_name"]: "Cidade De Pemba",
+            },
+            {
+                columns["admin2_pcode"]: "MZ0201",
+                columns["admin2_name"]: "Cidade De Pemba",
+            },
+        ]
+        pipeline.check_provider_pcodes("MOZ", "2026", rows)
+        assert pipeline._error_handler.shared_errors["warning"]["IOM HNA - MOZ"] == {
+            (
+                "IOM HNA - MOZ - 2026 p-codes match the current COD (2 of 2). "
+                "Review no_pcode_countries"
+            )
+        }
 
     def test_generate_dataset_no_data(self, pipeline):
         assert pipeline.generate_dataset("NGA", ["2025"], []) is None

@@ -70,9 +70,11 @@ automatically on commit).
     true with empty `data`.
   - `process_row`: keeps IOM's columns and inserts the standard p-code and
     `reference_period_start`/`_end` columns after `m0304_meta_adm2_pcode`.
-  - `get_standard_pcodes`: uses `complete_admins` against global p-codes. MOZ is matched on names
-    only, and Abyei is left blank. See `docs/decisions/0003-standard-pcode-columns.md`.
+  - `get_standard_pcodes`: uses `complete_admins` against global p-codes. MOZ (2019 COD) and Abyei
+    are left blank. See `docs/decisions/0003-standard-pcode-columns.md` and `0004`.
   - `check_columns`: logs differences between the data columns and the catalog.
+  - `check_provider_pcodes`: for `no_pcode_countries`, warns when a year's p-codes look like they
+    have moved to the current COD.
 - `config/project_configuration.yaml`: URLs, tags, column names and country-specific p-code
   handling.
 - `config/hdx_dataset_static.yaml`: licence (IOM `hdx-other`), org, maintainer, caveats and notes.

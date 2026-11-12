@@ -12,6 +12,7 @@ from hdx.location.country import Country
 from hdx.pipelineutils.hapi_admins import complete_admins
 from hdx.utilities.dateparse import parse_date_range
 from hdx.utilities.retriever import Retrieve
+from hdx.utilities.text import normalise
 
 logger = logging.getLogger(__name__)
 
@@ -113,23 +114,51 @@ class Pipeline:
                 message_type="warning",
             )
 
+    def check_provider_pcodes(self, iso3: str, year: str, rows: list[dict]) -> None:
+        """Warn if a no_pcode_countries year's admin 2 p-codes look like they now
+        come from the current COD, i.e. their current COD names match the
+        provider's names"""
+        columns = self._configuration["provider_admin_columns"]
+        pcode_to_name = self._admins[1].pcode_to_name
+        provider_pcodes = {
+            (row[columns["admin2_pcode"]], row[columns["admin2_name"]])
+            for row in rows
+            if row[columns["admin2_pcode"]] and row[columns["admin2_name"]]
+        }
+        if not provider_pcodes:
+            return
+        matches = sum(
+            normalise(pcode_to_name.get(pcode, "")) == normalise(name)
+            for pcode, name in provider_pcodes
+        )
+        if (
+            matches / len(provider_pcodes)
+            >= self._configuration["current_cod_match_threshold"]
+        ):
+            self._error_handler.add_message(
+                _PIPELINE,
+                iso3,
+                f"{year} p-codes match the current COD ({matches} of "
+                f"{len(provider_pcodes)}). Review no_pcode_countries",
+                message_type="warning",
+            )
+
     def get_standard_pcodes(self, iso3: str, row: dict) -> list[str]:
-        """Get admin 1 and 2 p-codes from the current COD, using the provider's
-        p-codes where they can be trusted and names otherwise"""
+        """Get admin 1 and 2 p-codes from the current COD"""
         columns = self._configuration["provider_admin_columns"]
         provider_names = [
             row[columns["admin1_name"]] or "",
             row[columns["admin2_name"]] or "",
         ]
-        if provider_names[1] in self._configuration["no_pcode_admin_names"]:
+        if (
+            iso3 in self._configuration["no_pcode_countries"]
+            or provider_names[1] in self._configuration["no_pcode_admin_names"]
+        ):
             return ["", ""]
-        if iso3 in self._configuration["ignore_provider_pcodes"]:
-            pcodes = ["", ""]
-        else:
-            pcodes = [
-                row[columns["admin1_pcode"]] or "",
-                row[columns["admin2_pcode"]] or "",
-            ]
+        pcodes = [
+            row[columns["admin1_pcode"]] or "",
+            row[columns["admin2_pcode"]] or "",
+        ]
         _, warnings = complete_admins(
             self._admins, iso3, provider_names, pcodes, ["", ""]
         )
@@ -196,6 +225,8 @@ class Pipeline:
             if not rows:
                 continue
             self.check_columns(iso3, year, rows[0], indicator_names)
+            if iso3 in self._configuration["no_pcode_countries"]:
+                self.check_provider_pcodes(iso3, year, rows)
             rows = [self.process_row(iso3, row) for row in rows]
             filename = f"{iso3.lower()}_iom_dtm_hna_{year}.csv"
             dataset.generate_resource(
@@ -206,7 +237,7 @@ class Pipeline:
                     "name": filename,
                     "description": f"{country_name} IOM DTM Household Needs "
                     f"Assessment {year} indicators by admin 2 and population group",
-                    "p_coded": True,
+                    "p_coded": iso3 not in self._configuration["no_pcode_countries"],
                 },
                 headers=list(rows[0]),
                 encoding="utf-8-sig",
