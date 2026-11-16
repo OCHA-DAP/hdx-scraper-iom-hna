@@ -37,3 +37,8 @@ notes: >
   There is one resource per assessment year, with indicators aggregated by
   admin 2 and population group, and a data dictionary describing each
   indicator column.
+
+  The HNA is the same survey as the Multi-Sector Needs Assessment (MSNA);
+  DTM operations renamed it. The indicators here are the common ones
+  aggregated across countries at admin 2 level. The household-level MSNA
+  datasets are available upon request from IOM DTM.
