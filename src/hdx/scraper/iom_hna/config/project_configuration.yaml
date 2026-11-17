@@ -1,1 +1,63 @@
 # Collector specific configuration
+COUNTRY_LIST_URL: "https://dtmapi.iom.int/HNA/v1/country-list"
+
+CATALOG_URL: "https://dtmapi.iom.int/HNA/v1/catalog"
+
+ADMIN2_URL: "https://dtmapi.iom.int/HNA/v1/admin2?Admin0Pcode={iso3}&Year={year}&Page={page}"
+
+tags:
+  - displacement
+  - food security
+  - health
+  - internally displaced persons-idp
+  - needs assessment
+  - returnees
+  - shelter
+  - water sanitation and hygiene-wash
+
+provider_admin_columns:
+  admin1_name: m3694_meta_adm1_name
+  admin1_pcode: m0303_meta_adm1_pcode
+  admin2_name: m3695_meta_adm2_name
+  admin2_pcode: m0304_meta_adm2_pcode
+
+year_column: year
+
+# Data columns not described in the data dictionary
+non_indicator_columns:
+  - id
+
+# MOZ HNA data uses the 2019 COD. In the current COD, 17 of IOM's 77 districts
+# overlap their 2019 area by under 90% (Cidade De Lichinga is 13 times larger)
+# and Ngauma no longer exists. IOM won't update it, so the standard p-code
+# columns are left blank.
+no_pcode_countries:
+  - MOZ
+
+# Share of a no_pcode_countries year's admin 2 p-codes whose current COD name
+# matches the provider's name, above which a warning suggests the provider has
+# moved to the current COD. With the 2019 MOZ codes, MZ0107 is Mecufi in IOM's
+# data but Marrupa in the current COD.
+current_cod_match_threshold: 0.9
+
+# Abyei Administrative Area has no p-code in the SSD COD (it is SD19 in the
+# SDN COD), so IOM leaves its SSD p-codes blank.
+no_pcode_admin_names:
+  - Abyei Administrative Area
+
+# Inserted after the provider's admin columns
+standard_columns:
+  - admin1_pcode
+  - admin2_pcode
+  - reference_period_start
+  - reference_period_end
+
+catalog_headers:
+  - indicator_category
+  - indicator_name
+  - description
+  - data_type
+
+catalog_resource_filename: iom_dtm_hna_data_dictionary.csv
+
+catalog_resource_description: "Data dictionary describing each indicator column in the IOM DTM Household Needs Assessment resources"
